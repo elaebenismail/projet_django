@@ -46,4 +46,15 @@ def clean(self):
 def _generate_ref(cls):
     annee = timezone.now().strftime('%y') #extraire lannee
     prefixe = f"EXP_{annee}_"
-    compteur = cls.objects.filter(reference__startswith=prefixe).order_by('reference').last()
+    dernier = (cls.objects.filter(reference__startswith=prefixe).order_by('reference').first())
+    compteur = (int(dernier.reference[-5:])+1 
+    if dernier else 1)
+    if compteur > 99999:
+        raise ValidationError('limit exceeded')
+    return f"{prefixe}{compteur:05d}"
+
+def save(self, *args, **kwargs):
+    if not self.reference:
+        self.reference = self._generate_ref()
+    self.full_clean()
+    super().save(*args, **kwargs)
