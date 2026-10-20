@@ -1,0 +1,51 @@
+/* TransConnect — petites retouches couleurs uniquement */
+
+/* Remplacement des variables CSS de Django admin */
+:root {
+  --primary: #2563eb;
+  --secondary: #1d4ed8;
+  --accent: #3b82f6;
+  --primary-fg: #fff;
+
+  --header-color: #fff;
+  --header-branding-color: #fff;
+  --header-bg: #2563eb;
+  --header-link-color: #fff;
+
+  --breadcrumbs-fg: #374151;
+  --breadcrumbs-link-fg: #2563eb;
+  --breadcrumbs-bg: #f9fafb;
+
+  --link-fg: #2563eb;
+  --link-hover-color: #1d4ed8;
+  --link-selected-fg: #1d4ed8;
+
+  --button-fg: #fff;
+
+  --body-fg: #111827;
+  --body-bg: #f3f4f6;
+  --body-quiet-color: #6b7280;
+
+  --darkened-bg: #f9fafb;
+  --selected-bg: #eff6ff;
+  --selected-row: #dbeafe;
+
+  --hairline-color: #e5e7eb;
+  --border-color: #d1d5db;
+}
+
+/* Police un peu plus propre */
+body, input, select, textarea, button {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Coins légèrement arrondis sur les modules */
+.module {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Boutons un poil plus arrondis */
+.button, input[type=submit], input[type=button], .submit-row input {
+  border-radius: 5px;
+}
