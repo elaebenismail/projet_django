@@ -99,3 +99,6 @@ class Offre(models.Model):
             Offre.objects.filter(
                 expedition=self.expedition, statut='proposee'
             ).exclude(pk=self.pk).update(statut='refusee')
+            
+    def __str__(self):
+        return f"Offre {self.prix} DT - {self.transporteur} sur {self.expedition.reference} ({self.statut})"

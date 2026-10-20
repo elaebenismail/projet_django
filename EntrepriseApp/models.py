@@ -48,6 +48,8 @@ class Utilisateur(AbstractUser):
         if not self.user_id:
             self.user_id = self._generate_user_id()
         super().save(*args, **kwargs)
+    def __str__(self):
+        return f"{self.user_id} - {self.username}"
 
 
 class Entreprise(models.Model):
@@ -63,3 +65,5 @@ class Entreprise(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     utilisateur = models.OneToOneField(Utilisateur, on_delete=models.CASCADE, related_name='entreprise')  # ← "utilisateur" (nom du TP)
+    def __str__(self):
+        return f"{self.raison_sociale} ({self.type_entreprise})"

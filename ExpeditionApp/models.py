@@ -56,3 +56,6 @@ class Expedition(models.Model):
             self.reference = self._generate_ref()
         self.full_clean()
         super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"{self.reference} : {self.ville_depart} → {self.ville_arrivee}"
