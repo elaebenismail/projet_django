@@ -1,51 +1,70 @@
-/* TransConnect — petites retouches couleurs uniquement */
-
-/* Remplacement des variables CSS de Django admin */
 :root {
-  --primary: #2563eb;
-  --secondary: #1d4ed8;
-  --accent: #3b82f6;
-  --primary-fg: #fff;
+    --primary: #7B1E2B;
+    --secondary: #A32638;
+    --accent: #F2C94C;
+    --primary-fg: #fff;
 
-  --header-color: #fff;
-  --header-branding-color: #fff;
-  --header-bg: #2563eb;
-  --header-link-color: #fff;
+    --header-bg: #7B1E2B;
+    --header-color: #fff;
+    --header-branding-color: #F2C94C;
+    --header-link-color: #fff;
 
-  --breadcrumbs-fg: #374151;
-  --breadcrumbs-link-fg: #2563eb;
-  --breadcrumbs-bg: #f9fafb;
+    --breadcrumbs-bg: #A32638;
+    --breadcrumbs-fg: #fff;
+    --breadcrumbs-link-fg: #fff;
 
-  --link-fg: #2563eb;
-  --link-hover-color: #1d4ed8;
-  --link-selected-fg: #1d4ed8;
+    --button-bg: #A32638;
+    --button-hover-bg: #7B1E2B;
+    --default-button-bg: #7B1E2B;
+    --default-button-hover-bg: #A32638;
+    --object-tools-bg: #A32638;
+    --object-tools-hover-bg: #7B1E2B;
 
-  --button-fg: #fff;
+    --link-fg: #A32638;
+    --link-hover-color: #7B1E2B;
+    --link-selected-fg: #7B1E2B;
 
-  --body-fg: #111827;
-  --body-bg: #f3f4f6;
-  --body-quiet-color: #6b7280;
-
-  --darkened-bg: #f9fafb;
-  --selected-bg: #eff6ff;
-  --selected-row: #dbeafe;
-
-  --hairline-color: #e5e7eb;
-  --border-color: #d1d5db;
+    --body-fg: #333;
+    --body-bg: #FBF6F6;
+    --body-quiet-color: #666;
+    --darkened-bg: #F7EEEE;
+    --selected-bg: #FBEAEC;
+    --selected-row: #FBEAEC;
+    --hairline-color: #E8DCDD;
+    --border-color: #D8C8CA;
 }
 
-/* Police un peu plus propre */
-body, input, select, textarea, button {
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+body,
+input,
+select,
+textarea,
+button {
+    font-family: Arial, sans-serif;
 }
 
-/* Coins légèrement arrondis sur les modules */
+#site-name a {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
 .module {
-  border-radius: 6px;
-  overflow: hidden;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-/* Boutons un poil plus arrondis */
-.button, input[type=submit], input[type=button], .submit-row input {
-  border-radius: 5px;
+.module h2,
+.module caption,
+.inline-group h2 {
+    background: #A32638;
+}
+
+#header {
+    border-bottom: 4px solid #F2C94C;
+}
+
+.button,
+input[type="submit"],
+input[type="button"],
+.submit-row input {
+    border-radius: 5px;
 }

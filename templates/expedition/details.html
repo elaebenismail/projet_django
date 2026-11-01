@@ -1,0 +1,14 @@
+{% extends "expedition/base.html" %}
+{% block title %}{{ expedition.reference }}{% endblock %}
+{% block content %}
+<h1>Expédition {{ expedition.reference }}</h1>
+<ul>
+    <li>Chargeur : {{ expedition.entreprise }}</li>
+    <li>Trajet : {{ expedition.ville_depart }} → {{ expedition.ville_arrivee }}</li>
+    <li>Poids : {{ expedition.poids_kg }} kg</li>
+    <li>Date souhaitée : {{ expedition.date_souhaitee }}</li>
+    <li>Statut : {{ expedition.get_statut_display }}</li>
+    <li>Description : {{ expedition.description }}</li>
+</ul>
+<a href="{% url 'list' %}">Retour à la liste</a>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}TransConnect{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'expedition/css/expedition.css' %}">
+</head>
+<body>
+    <nav class="site-nav"><a href="{% url 'list' %}">TransConnect - Expéditions</a></nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+:root {
+    --color-primary: #7B1E2B;
+    --color-secondary: #A32638;
+    --color-accent: #F2C94C;
+    --color-background: #FBF6F6;
+    --color-surface: #fff;
+    --color-text: #333;
+    --color-border: #E8DCDD;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: Arial, sans-serif;
+}
+
+.site-nav {
+    padding: 14px 24px;
+    background: var(--color-primary);
+    border-bottom: 4px solid var(--color-accent);
+}
+
+.site-nav a {
+    color: var(--color-surface);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+main {
+    max-width: 900px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+h1 {
+    color: var(--color-primary);
+}
+
+a {
+    color: var(--color-secondary);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+
+.table-container {
+    overflow-x: auto;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+}
+
+.expedition-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.expedition-table th {
+    padding: 10px;
+    background: var(--color-primary);
+    color: var(--color-surface);
+}
+
+.expedition-table td {
+    padding: 10px;
+    border-top: 1px solid var(--color-border);
+}
+
+.expedition-table tbody tr:nth-child(even) {
+    background: var(--color-background);
+}
+
+button {
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--color-primary);
+    color: var(--color-surface);
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--color-secondary);
+}

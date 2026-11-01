@@ -1,0 +1,14 @@
+{% extends "expedition/base.html" %}
+{% block title %}Supprimer {{ expedition.reference }}{% endblock %}
+{% block content %}
+<h1>Supprimer l'expédition {{ expedition.reference }} ?</h1>
+<p>{{ expedition.ville_depart }} → {{ expedition.ville_arrivee }}, {{ expedition.poids_kg }} kg</p>
+{% if expedition.offres.count %}
+<p>Attention : {{ expedition.offres.count }} offre(s) liée(s) seront aussi supprimées.</p>
+{% endif %}
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmer la suppression</button>
+    <a href="{% url 'details' expedition.pk %}">Annuler</a>
+</form>
+{% endblock %}

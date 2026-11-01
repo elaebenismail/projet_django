@@ -15,6 +15,8 @@ class UtilisateurAdmin(UserAdmin):
     search_fields = ('user_id', 'username', 'email', 'telephone')
     list_editable = ('role', 'telephone')
     ordering = ('user_id',)
+    date_hierarchy = 'created_at'
+    list_per_page = 25
     readonly_fields = ('user_id', 'created_at', 'updated_at')
     fieldsets = (
         (None, {'fields': ('user_id', 'username', 'password')}),
@@ -28,27 +30,40 @@ class UtilisateurAdmin(UserAdmin):
     )
 
 
+# Véhicules affichés et modifiables directement dans la fiche de l'entreprise
 class VehiculeInline(admin.TabularInline):
     model = Vehicule
     fields = ('immatriculation', 'type_vehicule', 'capacite_kg', 'disponible')
-    extra = 1
+    extra = 0
     show_change_link = True
 
 
 @admin.register(Entreprise)
 class EntrepriseAdmin(admin.ModelAdmin):
     inlines = [VehiculeInline]
+    # Obligatoire pour les autocomplete_fields qui pointent vers Entreprise
+    search_fields = ('raison_sociale', 'matricule_fiscal', 'utilisateur__username', 'utilisateur__email')
     list_display = ('raison_sociale', 'matricule_fiscal', 'type_entreprise', 'utilisateur', 'created_at')
     list_filter = ('type_entreprise', 'created_at')
-    search_fields = ('raison_sociale', 'matricule_fiscal', 'utilisateur__username', 'utilisateur__email')
     list_select_related = ('utilisateur',)
     list_editable = ('type_entreprise',)
     ordering = ('-created_at',)
     date_hierarchy = 'created_at'
     list_per_page = 25
+    autocomplete_fields = ('utilisateur',)
     readonly_fields = ('created_at', 'updated_at')
     fieldsets = (
         ("Identité de l'entreprise", {'fields': ('raison_sociale', 'matricule_fiscal', 'type_entreprise')}),
         ('Contact et gestion', {'fields': ('adresse', 'utilisateur')}),
         ('Horodatage', {'fields': ('created_at', 'updated_at'), 'classes': ('collapse',)}),
     )
+
+    # Les véhicules ne concernent que les transporteurs déjà créés :
+    # pas d'inline pour un chargeur, ni sur le formulaire d'ajout
+    def get_inlines(self, request, obj):
+        if obj and obj.type_entreprise == 'transporteur':
+            return self.inlines
+        return []
+
+
+# from . import health_check  # décommente cette ligne si tu as créé la page de contrôle d'intégrité
